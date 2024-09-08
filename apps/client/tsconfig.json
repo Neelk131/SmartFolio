@@ -14,7 +14,8 @@
     "incremental": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "outDir": "./dist"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "../../packages/db/src/dbConnect.ts"],
   "exclude": ["node_modules"]

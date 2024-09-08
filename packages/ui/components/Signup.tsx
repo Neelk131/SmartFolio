@@ -46,17 +46,14 @@ export function Signup(props: {
                 <Button
                     size={"large"}
                     variant="contained"
-                    onClick={async () => {
-                        // const response = await axios.post(`${BASE_URL}/admin/signup`, {
-                        //     username: email,
-                        //     password: password
-                        // })
+                    onClick={() => props.onClick("abc","def")
+                        
                         // let data = response.data;
                         // localStorage.setItem("token", data.token);
                         // // window.location = "/"
                         // setUser({userEmail: email, isLoading: false})
                         // navigate("/courses")
-                    }}
+                    }
 
                 > Signup</Button>
             </Card>

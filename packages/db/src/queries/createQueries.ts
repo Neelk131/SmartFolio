@@ -1,6 +1,7 @@
 import { getClient } from "../dbConnect";
 
-async function createTable() {
+export async function createTable() {
+    console.log("createTable called")
     const createUserTableQuery = `
         CREATE TABLE users (
             id SERIAL PRIMARY KEY,
@@ -31,4 +32,4 @@ async function createTable() {
 
 
 
-createTable();
+// createTable();

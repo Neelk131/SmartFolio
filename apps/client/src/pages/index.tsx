@@ -2,7 +2,6 @@ import { Inter } from 'next/font/google'
 import { Button, Typography } from "@mui/material";
 import {signIn, useSession, signOut} from "next-auth/react"
 
-
 export default function Home() {
   const session = useSession();
   console.error(session)
