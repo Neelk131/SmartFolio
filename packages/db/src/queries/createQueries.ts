@@ -1,7 +1,7 @@
 import { getClient } from "../dbConnect";
 
 export async function createTable() {
-    console.log("createTable called")
+    console.log("alterTableRename called")
     const createUserTableQuery = `
         CREATE TABLE users (
             id SERIAL PRIMARY KEY,
@@ -9,10 +9,18 @@ export async function createTable() {
             password VARCHAR(255) NOT NULL
         );
     `;
+    const alterTableRename = `
+        ALTER TABLE old_users
+        RENAME TO users;
+    `;
+    const alterTableDropColumn = `
+        ALTER TABLE users
+        Drop column password;
+    `;
 
     const client = await getClient();
 
-    await client.query(createUserTableQuery);
+    await client.query(alterTableDropColumn);
 
     // const createTodosQuery = `
     //     CREATE TABLE todos (
@@ -27,7 +35,7 @@ export async function createTable() {
 
     // await client.query(createTodosQuery);
 
-    console.log("Table created successfully!");
+    console.log("Table alterTableDropColumn from usres successfully!");
 }
 
 

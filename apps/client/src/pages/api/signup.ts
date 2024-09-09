@@ -3,7 +3,8 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 // import { Admin } from "db";
 import jwt from "jsonwebtoken";
 import { create } from 'domain';
-import { createTable } from 'db';
+import { insertUser } from 'db';
+import { log } from 'console';
 
 const SECRET = "SECRET";
 
@@ -17,8 +18,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-    console.log("handler called");
-    await createTable()
+    console.log("handler called", req.body);
+    const { email,name } = req.body;
+    console.log("xxxxx", email, name);
+    
+    await insertUser(email, name);
     // await ensureDbConnected()
     // const { username, password } = req.body;
     // const admin = await Admin.findOne({ username });
