@@ -22,7 +22,11 @@ export default async function handler(
     const { email,name } = req.body;
     console.log("xxxxx", email, name);
     
-    await insertUser(email, name);
+    await insertUser({
+      email:email, 
+      name:name,
+      provider:'system'
+    });
     // await ensureDbConnected()
     // const { username, password } = req.body;
     // const admin = await Admin.findOne({ username });

@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import {Provider} from "next-auth/providers";
 
 import GoogleProvider from "next-auth/providers/google"
+import { findUser, insertUser } from "db";
 
 export const authOptions = {
     // Configure one or more authentication providers
@@ -70,6 +71,35 @@ export default NextAuth({
             clientSecret: process.env.NEXT_GOOGLE_CLIENT_SECRET!,
         }),
     ] as Provider[],
+    callbacks: {
+        async signIn({ user, account, profile }) {
+          // Check if user already exists
+          const existingUser = await findUser( user.email );
+          console.log("existingUser .... ", existingUser);
+          
+    
+          if (existingUser == 0) {
+            // If user doesn't exist, create a new user
+            const data = {
+              data: {
+                email: user.email,
+                name: user.name,
+                provider: 'google',
+              }};
+            
+            await insertUser({
+                email: user.email,
+                name: user.name,
+                provider: 'google',
+              });
+          }
+          return true;
+        },
+        // async session({ session, user }) {
+        //   session.userId = user.id; // Add user ID to session
+        //   return session;
+        // },
+      },
     secret: process.env.NEXTAUTH_SECRET,
     session: {
         strategy: "jwt",

@@ -17,10 +17,14 @@ export async function createTable() {
         ALTER TABLE users
         Drop column password;
     `;
+    const alterTableAddColumn = `
+        ALTER TABLE users
+        ADD COLUMN provided column_type DEFAULT default_value;
+    `;
 
     const client = await getClient();
 
-    await client.query(alterTableDropColumn);
+    await client.query(alterTableAddColumn);
 
     // const createTodosQuery = `
     //     CREATE TABLE todos (
