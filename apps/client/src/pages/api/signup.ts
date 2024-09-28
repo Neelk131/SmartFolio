@@ -20,7 +20,7 @@ export default async function handler(
 ) {
     console.log("handler called", req.body);
     const { email,name } = req.body;
-    console.log("xxxxx", email, name);
+    console.log("email, name of user", email, name);
     
     await insertUser({
       email:email, 

@@ -18,8 +18,6 @@ export async function insertUser(data: UserData) {
 
     await client.query(insertUser,[data.email,data.name,data.provider]);
 
-    // const create
-
     console.log("insertUser  successfully!", data.email);
 }
 

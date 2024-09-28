@@ -3,6 +3,7 @@ import { Button, Typography } from "@mui/material";
 import {signIn, useSession, signOut} from "next-auth/react"
 import axios from 'axios';
 import { useEffect } from 'react';
+import NavBar from 'ui/components/NavBar';
 
 export default function Home() {
   const session = useSession();
@@ -10,23 +11,9 @@ export default function Home() {
   // const name  = session.data?.user?.name
   
   return (
-    <div style={{height: 60, background: "white", padding: 10}}>
-      {session.data && <div style={{display: "flex", justifyContent: "space-between"}}>
-        <Typography variant={"h4"} style={{color: "black"}}>
-          {session.data.user?.email}
-        </Typography>
-        <div>
-          <Button variant={"contained"} onClick={() => signOut()}>Logout</Button>
-        </div>
-        </div>}
-      {!session.data && <div style={{display: "flex", justifyContent: "space-between"}}>
-        <Typography variant={"h4"} style={{color: "black"}}>
-          SmartFolio
-        </Typography>
-        <div>
-          <Button variant={"contained"} onClick={() => signIn()}>Sign up</Button>
-        </div>
-      </div>}
-    </div>
+    <div style={{ height: 60, background: "grey", padding: 20}}>
+      <NavBar></NavBar>
+     </div>
+
   )
 }
