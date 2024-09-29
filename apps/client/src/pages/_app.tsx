@@ -6,10 +6,11 @@ import NavBar from "ui/components/NavBar";
 import { RecoilRoot } from "recoil";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <RecoilRoot> <SessionProvider session={pageProps.session}>
-    <NavBar />
-    <Component {...pageProps} />
-  </SessionProvider>
+  return <RecoilRoot> 
+      <SessionProvider session={pageProps.session}>
+      <NavBar />
+      <Component {...pageProps} />
+    </SessionProvider>
   </RecoilRoot>;
 }
 
