@@ -8,7 +8,7 @@ import { TABS } from '../utils/constants'
 import { useSession, signIn, signOut } from 'next-auth/react';
 
 const navigation = [
-    { name: 'Dashboard', href: '/'},
+    { name: 'Dashboard', href: '/dashboard'},
     { name: 'My Portfolios', href: '/signup'},
     { name: 'Projects', href: '/signin'},
     { name: 'Calendar', href: '#'},
