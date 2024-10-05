@@ -9,9 +9,9 @@ import { useSession, signIn, signOut } from 'next-auth/react';
 
 const navigation = [
     { name: 'Dashboard', href: '/dashboard'},
-    { name: 'My Portfolios', href: '/signup'},
-    { name: 'Projects', href: '/signin'},
-    { name: 'Calendar', href: '#'},
+    { name: 'My Portfolios', href: '/myPortfolios'},
+    { name: 'About Us', href: '/aboutus'},
+    { name: 'News', href: '/news'},
 ]
 
 function classNames(...classes: string[]) {

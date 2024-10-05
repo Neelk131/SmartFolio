@@ -10,6 +10,6 @@ export default withAuth({
         },
     },
     pages: {
-        signIn: '/', // Redirect to sign-in page if not authenticated
+        signIn: '/signup', // Redirect to sign-in page if not authenticated
     },
 });
